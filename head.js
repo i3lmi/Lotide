@@ -1,9 +1,9 @@
-const assertEqual = function (actual, expected) {
-  if (actual === expected) {
+const assertEqual = require('./assertEqual');
+if (actual === expected) {
     console.log(`Assertion Passed: ${actual} === ${expected} `);
   } else {
     console.log(`Assertion failed: ${actual} !== ${expected} `);
-  }
+  } 
 };
 
 let array = ["first", "second", "third", "fourth", "fifth"];
