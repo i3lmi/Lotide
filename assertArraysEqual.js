@@ -20,3 +20,34 @@ function eqArrays(array1, array2) {
 
   assertArraysEqual([1, 2, 3], [1, 2, 3]); // logs "The arrays are equal."
 assertArraysEqual([1, 2, 3], [3, 2, 1]); // logs "The arrays are not equal."
+
+const eqArrays = require('./eqArrays');
+
+function assertArraysEqual(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log("The arrays are equal.");
+  } else {
+    console.log("The arrays are not equal.");
+  }
+}
+
+module.exports = assertArraysEqual;
+
+function eqArrays(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+module.exports = eqArrays;
+
+const assertArraysEqual = require('./assertArraysEqual');
+
+assertArraysEqual([1, 2, 3], [1, 2, 3]); // logs "The arrays are equal."
+assertArraysEqual([1, 2, 3], [3, 2, 1]); // logs "The arrays are not equal."
