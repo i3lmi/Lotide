@@ -32,3 +32,28 @@ function middle(array) {
     return result;
   }
   
+  const eqArrays = require('./eqArrays');
+
+function middle(array) {
+  let result = [];
+  if (array.length <= 2) {
+    return result;
+  }
+  let middleIndex = Math.floor(array.length / 2);
+  if (array.length % 2 === 0) {
+    result.push(array[middleIndex - 1], array[middleIndex]);
+  } else {
+    result.push(array[middleIndex]);
+  }
+  return result;
+}
+
+module.exports = middle;
+
+const assertArraysEqual = require('../assertArraysEqual');
+const middle = require('../middle');
+
+assertArraysEqual(middle([1, 2, 3]), [2]);
+assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
+assertArraysEqual(middle([1]), []);
+assertArraysEqual(middle([1, 2]), []);
